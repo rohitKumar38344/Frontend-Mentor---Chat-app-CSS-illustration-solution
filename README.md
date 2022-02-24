@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github repo](https://rohitkumar38344.github.io/Frontend-Mentor---Chat-app-CSS-illustration-solution)
+- Live Site URL: [live site url](https://rohitkumar38344.github.io/Frontend-Mentor---Chat-app-CSS-illustration-solution/)
 
 ## My process
 
