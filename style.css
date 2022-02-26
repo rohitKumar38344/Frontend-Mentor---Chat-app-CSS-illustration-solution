@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,41 +19,48 @@ body {
   color: #555;
   line-height: 1;
   background-color: hsl(270, 20%, 96%);
+  height: 100vh;
+  /* overflow: hidden; */
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
-main {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10rem;
+  flex: 1 0 auto;
+  z-index: 9999;
 }
 
 .section-mobile {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 1.28rem;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 20px;
+  justify-self: end;
 }
 
 .section-mobile::before {
   content: "";
   display: block;
-  width: 27.6rem;
-  height: 100vh;
+  width: 50rem;
+  height: 88vh;
   background: linear-gradient(to top, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
-  border-bottom-right-radius: 25rem;
-}
-
-.mobile-container {
-  background-color: hsl(0, 0%, 100%);
-  width: 35rem;
-  border-radius: 20px;
-  position: relative;
-  margin-top: 12.8rem;
+  border-bottom-right-radius: 36rem;
+  border-bottom-left-radius: 30rem;
+  position: absolute;
+  top: 0;
+  right: 70%;
+  z-index: -1;
 }
 
 .mobile-screen {
   background-color: hsl(270, 20%, 96%);
-  margin: 1.6rem;
   border-radius: 2rem;
+  width: 30rem;
+  border: 9px solid #fff;
 }
 
 .chat {
@@ -61,9 +70,13 @@ main {
     hsl(293, 100%, 63%)
   );
   border-radius: 2rem 2rem 5px 5px;
-  padding: 3.2rem 1.6rem 2rem 1.6rem;
+  padding: 1.2rem;
+  height: 8rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1.6rem;
+  position: relative;
 }
 
 .chat-icon,
@@ -72,7 +85,6 @@ main {
   height: 1.6rem;
   stroke: #fff;
   cursor: pointer;
-  align-self: center;
 }
 
 .menu-icon {
@@ -83,13 +95,12 @@ main {
 .chat::after {
   content: "";
   display: block;
-  width: 16.2rem;
-  padding: 2rem;
+  width: 50%;
+  height: 2rem;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 0 0 1.5rem 1.5rem;
   position: absolute;
   top: 0;
-  right: 7rem;
 }
 
 .author-img {
@@ -98,9 +109,9 @@ main {
   border-radius: 50%;
 }
 
-.chat-details {
+/* .chat-details {
   align-self: end;
-}
+} */
 
 .chat-author {
   font-size: 1.6rem;
@@ -114,17 +125,15 @@ main {
 
 .chat-area {
   padding: 1.6rem;
-  padding-top: 0;
 }
 
 .received-msg,
 .sender-msg {
-  width: 65%;
+  width: 19rem;
   font-size: 1.2rem;
-  line-height: 1.3;
-  padding: 1.2rem;
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  line-height: 1.2;
+  padding: 0.8rem;
+  margin-bottom: 8px;
   border-radius: 1.6rem;
 }
 
@@ -135,17 +144,14 @@ main {
 }
 
 .media-send {
-  display: flex;
-  gap: 1.6rem;
+  text-align: end;
+  margin-bottom: 1.6rem;
 }
 
 .animals {
-  width: 4.8rem;
-  border-radius: 9px;
-}
-
-.animals:nth-child(1) {
-  margin-left: auto;
+  width: 4rem;
+  border-radius: 10px;
+  margin-left: 4px;
 }
 
 .sender-msg {
@@ -163,12 +169,11 @@ main {
   );
   color: hsl(276, 100%, 81%);
   width: 80%;
-  padding: 1.6rem;
-  font-size: 1.6rem;
+  padding: 1.2rem;
+  font-size: 1rem;
   border-radius: 1.6rem;
   border-bottom-left-radius: 5px;
-  margin-bottom: 1.6rem;
-
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -184,8 +189,9 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-weight: 500;
   position: relative;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .radio__input {
@@ -217,23 +223,28 @@ main {
 }
 
 .amount {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
   color: hsl(0, 0%, 100%);
 }
 
 .type-msg {
-  position: relative;
+  padding: 4px;
+  border-radius: 2rem;
+  background-color: #fff;
+  overflow: hidden;
+
+  display: flex;
 }
 
 .type-msg input {
-  padding: 2.4rem;
   color: hsl(206, 6%, 79%);
   outline: none;
   border: none;
-  font-size: 1.6rem;
-  width: 100%;
-  border-radius: 28px;
+  font-size: 1rem;
+  width: 90%;
+
+  padding-left: 1.2rem;
 }
 
 .type-msg input::placeholder {
@@ -241,15 +252,12 @@ main {
 }
 
 .submit-btn {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
   background-color: hsl(271, 36%, 24%);
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
 }
 
 .send-icon {
@@ -280,11 +288,11 @@ main {
   content: "";
   display: block;
   width: 190px;
-  height: 100vh;
+  height: 86%;
   background: linear-gradient(to top, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
-  border-top-left-radius: 218px;
+  border-top-left-radius: 21.8rem;
   position: absolute;
-  top: 0;
+  top: 8.4rem;
   right: 0;
   opacity: 0.1;
 }
